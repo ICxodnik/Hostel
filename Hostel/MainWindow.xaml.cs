@@ -1,5 +1,8 @@
-﻿using System;
+﻿using DbLayer;
+using DbLayer.Tables;
+using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +26,23 @@ namespace Hostel
         public MainWindow()
         {
             InitializeComponent();
+
+
+            using (var context = new HotelPlazaContext())
+            {
+                context.Database.CreateIfNotExists();
+
+                var client = new Client() {
+                    Id = 1,
+                    FirstName = "Abdula Akazov",
+                    Address = "Manhatten??",
+                    Passport = "RK93849340"
+                };
+
+                context.Clients.Add(client);
+                var resultCode = context.SaveChanges();
+            }
+
         }
     }
 }

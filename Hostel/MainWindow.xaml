@@ -5,82 +5,62 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hostel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="756.844" Width="810.227" FontFamily="Malgun Gothic Semilight" FontSize="15" FontWeight="Medium" FontStretch="SemiExpanded">
+        Title="MainWindow" Height="885.719" Width="760.66" FontFamily="Microdot" FontSize="15" FontWeight="Black" FontStretch="UltraExpanded" Background="#FF661E1E" TextOptions.TextFormattingMode="Display">
     <Window.Resources>
-        <Style x:Name="TabItemStyle" TargetType="{x:Type TabItem}">
-            <Setter Property="Height" Value="50" ></Setter>
-            <Setter Property="Width" Value="250" ></Setter>
+
+        <Style x:Name="TextBlock" TargetType="{x:Type TextBlock}">
+            <Setter Property="Foreground" Value="#FF3C261D" />
         </Style>
 
+        <Style x:Name="TextLabel" TargetType="{x:Type Label}">
+            <Setter Property="Foreground" >
+                <Setter.Value>
+                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                        <GradientStop Color="#FF8E6030" Offset="1"/>
+                        <GradientStop Color="#FFDAAD7D" Offset="0"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
 
         <Style x:Name="StyleButtonMenu" TargetType="{x:Type Button}">
             <Setter Property="Margin" Value="5" ></Setter>
-            <Setter Property="Background">
-                <Setter.Value>
-                    <SolidColorBrush Color="#FFBCC8C0" Opacity="0.5"/>
-                </Setter.Value>
-            </Setter>
+            <Setter Property="Background" Value="#FFA97E7E"/>
         </Style>
     </Window.Resources>
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="Image/12.png"/>
+            <ImageBrush ImageSource="Image/16.png"/>
         </Grid.Background>
 
-        <Grid>
+        <Grid Margin="0,0,0.4,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="130"/>
                 <RowDefinition/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <Grid Grid.Row="0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition Width=" Auto"/>
-                </Grid.ColumnDefinitions>
 
-                <StackPanel Grid.Column="0">
-                    <Label x:Name="labelDateTime" HorizontalAlignment="Center" VerticalAlignment="Top">
-                        Дата заказа:
-                    </Label>
-                    <Label x:Name="labelDateTimeLast" HorizontalAlignment="Center" VerticalAlignment="Top">
-                        Осталось дней:
-                    </Label>
-                </StackPanel>
-
-                <Image Grid.Column="1" Source="Image\1.png" Height="100" ></Image>
-
-                <StackPanel Grid.Column="2">
-                    <Label x:Name="labelClientName" HorizontalAlignment="Center" VerticalAlignment="Top">
-                        Имя:
-                    </Label>
-                    <Label x:Name="labelClientNomer" HorizontalAlignment="Center" VerticalAlignment="Top">
-                        Номер:
-                    </Label>
-                    <Label x:Name="labelClientDebt" HorizontalAlignment="Center" VerticalAlignment="Top">
-                        Задолженость:
-                    </Label>
-                </StackPanel>
-            </Grid>
+            <Image Grid.Row="0"  Source="Image\1.png" Height="100" ></Image>
 
 
 
-            <TabControl x:Name="tabControl"  Grid.Row="2" Background="{x:Null}" >
+            <TabControl x:Name="tabControl"  Grid.Row="1" Background="{x:Null}" >
 
                 <TabItem Header="Заказать услуги" HorizontalAlignment="Left">
-                    <Grid Margin="5,5">
+                    <Grid Margin="15,15">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
 
                         <Grid.Background>
-                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.7">
-                            <GradientStop Color="Black" Offset="1"/>
-                            <GradientStop Color="#FF883A3A"/>
-                        </LinearGradientBrush>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.7">
+                                <GradientStop Color="#FF341009" Offset="0.932"/>
+                                <GradientStop Color="#FF3C1B13" Offset="0.065"/>
+                                <GradientStop Color="#FFA85058" Offset="0.457"/>
+                            </LinearGradientBrush>
                         </Grid.Background>
 
                         <UniformGrid Grid.Column="0" Columns="2" >
@@ -93,7 +73,7 @@
                             <Button Tag="food" Click="button_Click">
                                 <StackPanel>
                                     <Image Source="Image\m5.png" Height="60"></Image>
-                                    <TextBlock>Питание</TextBlock>
+                                    <TextBlock  >Питание</TextBlock>
                                 </StackPanel>
                             </Button>
                             <Button Tag="cleaning" Click="button_Click">
@@ -134,7 +114,7 @@
                                 <GradientStop Color="#FF883A3A"/>
                             </LinearGradientBrush>
                         </Grid.Background>
-                        
+
                         <ListView x:Name="listView" Height="562" VerticalAlignment="Top" Margin="0,0,-0.4,0" Background="{x:Null}">
                             <ListView.View>
                                 <GridView>
@@ -155,10 +135,50 @@
                         </StackPanel.Background>
                         <TextBlock Margin="50" x:Name="textBlock" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Выберете дату выезда" VerticalAlignment="Top" Height="33" Width="249" FontSize="20"/>
                         <DatePicker HorizontalAlignment="Center" VerticalAlignment="Center" Width="249" FontSize="20"/>
-                        <Button  Margin="50"  x:Name="button"  HorizontalAlignment="Center"  VerticalAlignment="Center" Width="249" Height="61" Click="button_Click"/>
+                        <Label></Label>
+                        <Button  Margin="50"  x:Name="button"  HorizontalAlignment="Center"  VerticalAlignment="Center" Width="249" Height="61" Click="button_Click" Content="Подтвердить"/>
                     </StackPanel>
                 </TabItem>
             </TabControl>
+
+
+
+
+
+
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width=" Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0">
+                    <Label x:Name="labelDateTime1" HorizontalAlignment="Center" VerticalAlignment="Top">
+                        Дата заказа:
+                    </Label>
+                    <Label x:Name="labelDateTimeLast1" HorizontalAlignment="Center" VerticalAlignment="Top">
+                        Осталось дней:
+                    </Label>
+                </StackPanel>
+
+                <Image Grid.Column="1" Source="Image\1mini.png" Height="100" Opacity="0.5" ClipToBounds="True" />
+
+                <StackPanel Grid.Column="2">
+                    <Label x:Name="labelClientName1" HorizontalAlignment="Center" VerticalAlignment="Top">
+                        Имя:
+                    </Label>
+                    <Label x:Name="labelClientNomer1" HorizontalAlignment="Center" VerticalAlignment="Top">
+                        Номер:
+                    </Label>
+                    <Label x:Name="labelClientDebt1" HorizontalAlignment="Center" VerticalAlignment="Top">
+                        Задолженость:
+                    </Label>
+                </StackPanel>
+            </Grid>
+
+
+
 
         </Grid>
     </Grid>

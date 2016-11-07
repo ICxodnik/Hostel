@@ -16,18 +16,13 @@ using System.Windows.Shapes;
 namespace Hostel.Pages
 {
     /// <summary>
-    /// Interaction logic for ExcursionPage.xaml
+    /// Interaction logic for DefaultPage.xaml
     /// </summary>
-    public partial class ExcursionPage : Page
+    public partial class DefaultPage : Page
     {
-        public ExcursionPage()
+        public DefaultPage()
         {
             InitializeComponent();
-        }
-
-        private void Page_Loaded(object sender, RoutedEventArgs e)
-        {
-            listView.ItemsSource = Enumerable.Repeat("Прогулка по парку", 10);
         }
     }
 }

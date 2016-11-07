@@ -1,5 +1,6 @@
 ﻿using DbLayer;
 using DbLayer.Tables;
+using Hostel.Pages;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
@@ -28,22 +29,33 @@ namespace Hostel
             InitializeComponent();
 
 
-            using (var context = new HotelPlazaContext())
-            {
-                context.Database.CreateIfNotExists();
+            // when db will be ready
+            // 
+            //using (var context = new HotelPlazaContext())
+            //{
+            //    context.Database.CreateIfNotExists();
 
-                var client = new Client() {
-                    Id = 1,
-                    FirstName = "Abdula Akazov",
-                    Address = "Manhatten??",
-                    Passport = "RK93849340"
-                };
+            //    var client = new Client() {
+            //        Id = 1,
+            //        FirstName = "Abdula Akazov",
+            //        Address = "Manhatten??",
+            //        Passport = "RK93849340"
+            //    };
 
-                context.Clients.Add(client);
-                var resultCode = context.SaveChanges();
-            }
+            //    context.Clients.Add(client);
+            //    var resultCode = context.SaveChanges();
+            //}
 
         }
+
+        static Dictionary<String, Func<Page>> pages = new Dictionary<string, Func<Page>> {
+            { "deliver", () => new DefaultPage() },
+            { "food", () => new DefaultPage() },
+            { "cleaning", () => new DefaultPage() },
+            { "spa", () => new DefaultPage() },
+            { "transport", () => new DefaultPage() },
+            { "excursion", () => new ExcursionPage() }
+        };
 
         private void textBox_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -52,7 +64,14 @@ namespace Hostel
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
+            var type = (sender as Button).Tag.ToString();
 
+
+            Func<Page> pageFactory;
+            if (pages.TryGetValue(type, out pageFactory))
+            {
+                OrderSettings.NavigationService.Navigate(pageFactory());
+            }
         }
     }
 }

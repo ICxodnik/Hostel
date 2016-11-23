@@ -25,7 +25,7 @@
 
 
         <Style x:Name="StyleButtonMenu" TargetType="{x:Type Button}">
-            <Setter Property="Margin" Value="5" ></Setter>
+            <Setter Property="Margin" Value="0,5" ></Setter>
             <Setter Property="Background" Value="#FFA97E7E"/>
         </Style>
     </Window.Resources>
@@ -55,54 +55,49 @@
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
 
-                        <Grid.Background>
-                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.7">
-                                <GradientStop Color="#FF341009" Offset="0.932"/>
-                                <GradientStop Color="#FF3C1B13" Offset="0.065"/>
-                                <GradientStop Color="#FFA85058" Offset="0.457"/>
-                            </LinearGradientBrush>
-                        </Grid.Background>
 
-                        <UniformGrid Grid.Column="0" Columns="2" >
-                            <Button Tag="deliver" Click="button_Click">
+
+                        <UniformGrid Grid.Column="0" Columns="1" >
+                            <Button Tag="deliver" Click="button_Click" Margin="0,5,0,4.6" HorizontalAlignment="Left" Width="142">
                                 <StackPanel>
-                                    <Image Source="Image\d1.png" Height="60"></Image>
+                                    <Image Source="Image\d1.png" Height="40"></Image>
                                     <TextBlock>Доставка</TextBlock>
                                 </StackPanel>
                             </Button>
                             <Button Tag="food" Click="button_Click">
                                 <StackPanel>
-                                    <Image Source="Image\m5.png" Height="60"></Image>
+                                    <Image Source="Image\m5.png" Height="40"></Image>
                                     <TextBlock  >Питание</TextBlock>
                                 </StackPanel>
                             </Button>
                             <Button Tag="cleaning" Click="button_Click">
                                 <StackPanel>
-                                    <Image Source="Image\u1.png" Height="60"></Image>
+                                    <Image Source="Image\u1.png" Height="40" Width="68"></Image>
                                     <TextBlock>Уборка в номере</TextBlock>
                                 </StackPanel>
                             </Button>
                             <Button Tag="spa" Click="button_Click">
                                 <StackPanel>
-                                    <Image Source="Image\s1.png" Height="60"></Image>
+                                    <Image Source="Image\s1.png" Height="40"></Image>
                                     <TextBlock>СПА-услуги</TextBlock>
                                 </StackPanel>
                             </Button>
                             <Button Tag="transport" Click="button_Click">
                                 <StackPanel>
-                                    <Image Source="Image\t1.png" Height="60"></Image>
+                                    <Image Source="Image\t1.png" Height="40"></Image>
                                     <TextBlock>Транспорт</TextBlock>
                                 </StackPanel>
                             </Button>
                             <Button Tag="excursion" Click="button_Click">
                                 <StackPanel>
-                                    <Image Source="Image\e2.png" Height="60"></Image>
+                                    <Image Source="Image\e2.png" Height="40"></Image>
                                     <TextBlock>Экскурсии</TextBlock>
                                 </StackPanel>
                             </Button>
                         </UniformGrid>
 
                         <Frame x:Name="OrderSettings" Grid.Column="1" NavigationUIVisibility="Hidden" Source="Pages/DefaultPage.xaml" />
+
                     </Grid>
                 </TabItem>
 

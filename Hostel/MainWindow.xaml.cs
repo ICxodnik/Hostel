@@ -49,11 +49,11 @@ namespace Hostel
         }
 
         static Dictionary<String, Func<Page>> pages = new Dictionary<string, Func<Page>> {
-            { "deliver", () => new DefaultPage() },
-            { "food", () => new DefaultPage() },
-            { "cleaning", () => new DefaultPage() },
-            { "spa", () => new DefaultPage() },
-            { "transport", () => new DefaultPage() },
+            { "deliver", () => new DeliverPage() },
+            { "food", () => new FoodPage() },
+            { "cleaning", () => new CleaningPage() },
+            { "spa", () => new SpaPage() },
+            { "transport", () => new TransportPage() },
             { "excursion", () => new ExcursionPage() }
         };
 
@@ -65,7 +65,6 @@ namespace Hostel
         private void button_Click(object sender, RoutedEventArgs e)
         {
             var type = (sender as Button).Tag.ToString();
-
 
             Func<Page> pageFactory;
             if (pages.TryGetValue(type, out pageFactory))

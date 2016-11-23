@@ -27,7 +27,14 @@ namespace Hostel.Pages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            listView.ItemsSource = Enumerable.Repeat("Прогулка по парку", 10);
+            listView.ItemsSource = new[] {
+                new { Type = "Храмы Львова", Price = "5$", SourseImg = "\\Image\\Exc\\exc1.jpg", Time = "11/11/16 9:00"},
+                new { Type = "Кофейный львов", Price = "8$", SourseImg = "\\Image\\Exc\\exc2.jpg", Time = "12/11/16 13:30" },
+                new { Type = "Жемчужина Европы", Price = "10$", SourseImg = "\\Image\\Exc\\exc3.jpg", Time = "13/11/16 20:00" },
+                new { Type = "Семь чудес Львова", Price = "12$", SourseImg = "\\Image\\Exc\\exc4.jpg", Time = "14/11/16 20:00" },
+                new { Type = "Средневековый Львов", Price = "12$", SourseImg = "\\Image\\Exc\\exc5.jpg", Time = "15/11/16 20:00" },
+                new { Type = "Романтический Львов", Price = "15$", SourseImg = "\\Image\\Exc\\exc6.jpg", Time = "16/11/16 20:00" },
+            };
         }
     }
 }

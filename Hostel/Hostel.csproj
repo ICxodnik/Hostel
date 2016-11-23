@@ -80,6 +80,26 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\DeliverPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\FoodPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\CleaningPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\SpaPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\TransportPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Pages\ExcursionPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -88,6 +108,21 @@
   <ItemGroup>
     <Compile Include="Pages\DefaultPage.xaml.cs">
       <DependentUpon>DefaultPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DeliverPage.xaml.cs">
+      <DependentUpon>DeliverPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FoodPage.xaml.cs">
+      <DependentUpon>FoodPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CleaningPage.xaml.cs">
+      <DependentUpon>CleaningPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SpaPage.xaml.cs">
+      <DependentUpon>SpaPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TransportPage.xaml.cs">
+      <DependentUpon>TransportPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\ExcursionPage.xaml.cs">
       <DependentUpon>ExcursionPage.xaml</DependentUpon>
@@ -173,6 +208,19 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Image\1mini.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Food\obed.jpg" />
+    <Resource Include="Image\Food\yzunf.jpg" />
+    <Resource Include="Image\Food\zavtrak.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Exc\exc1.jpg" />
+    <Resource Include="Image\Exc\exc2.jpg" />
+    <Resource Include="Image\Exc\exc3.jpg" />
+    <Resource Include="Image\Exc\exc4.jpg" />
+    <Resource Include="Image\Exc\exc5.jpg" />
+    <Resource Include="Image\Exc\exc6.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

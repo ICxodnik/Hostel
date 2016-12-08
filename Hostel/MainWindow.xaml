@@ -28,6 +28,19 @@
             <Setter Property="Margin" Value="0,5" ></Setter>
             <Setter Property="Background" Value="#FFA97E7E"/>
         </Style>
+
+		<Style x:Key="TypeButton" TargetType="{x:Type RadioButton}" BasedOn="{StaticResource {x:Type ToggleButton}}">
+			<Setter Property="Background" Value="#FFA97E7E" />
+			<Setter Property="Padding" Value="0,8" />
+			<Style.Triggers>
+				<DataTrigger Binding="{Binding Path=IsChecked, RelativeSource={RelativeSource Self}}" Value="True">
+					<Setter Property="Background" Value="Green" />
+				</DataTrigger>
+				<DataTrigger Binding="{Binding Path=IsChecked, RelativeSource={RelativeSource Self}}" Value="True">
+					<Setter Property="Background" Value="Blue" />
+				</DataTrigger>
+			</Style.Triggers>
+		</Style>
     </Window.Resources>
     <Grid>
         <Grid.Background>
@@ -51,50 +64,43 @@
                 <TabItem Header="Заказать услуги" HorizontalAlignment="Left">
                     <Grid Margin="15,15">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition/>
+							<ColumnDefinition Width="Auto" />
+							<ColumnDefinition/>
                         </Grid.ColumnDefinitions>
 
+						<ListBox x:Name="ActionTypeList" Grid.Column="0" HorizontalContentAlignment="Stretch"
+								 Background="Transparent" SelectionMode="Single" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+							<ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <UniformGrid Columns="1"/>
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
 
+							<ListBox.ItemTemplate>
+								<DataTemplate>
+									<DataTemplate.Triggers>
+										<DataTrigger Binding="{Binding Path=IsChecked}" Value="True">
+											<Setter Property="RadioButton.Background" Value="Green" />
+										</DataTrigger>
+										<DataTrigger Binding="{Binding Path=IsChecked}" Value="True">
+											<Setter Property="RadioButton.Background" Value="Blue" />
+										</DataTrigger>
+									</DataTemplate.Triggers>
 
-                        <UniformGrid Grid.Column="0" Columns="1" >
-                            <Button Tag="deliver" Click="button_Click" Margin="0,5,0,4.6" HorizontalAlignment="Left" Width="142">
-                                <StackPanel>
-                                    <Image Source="Image\d1.png" Height="40"></Image>
-                                    <TextBlock>Доставка</TextBlock>
-                                </StackPanel>
-                            </Button>
-                            <Button Tag="food" Click="button_Click">
-                                <StackPanel>
-                                    <Image Source="Image\m5.png" Height="40"></Image>
-                                    <TextBlock  >Питание</TextBlock>
-                                </StackPanel>
-                            </Button>
-                            <Button Tag="cleaning" Click="button_Click">
-                                <StackPanel>
-                                    <Image Source="Image\u1.png" Height="40" Width="68"></Image>
-                                    <TextBlock>Уборка в номере</TextBlock>
-                                </StackPanel>
-                            </Button>
-                            <Button Tag="spa" Click="button_Click">
-                                <StackPanel>
-                                    <Image Source="Image\s1.png" Height="40"></Image>
-                                    <TextBlock>СПА-услуги</TextBlock>
-                                </StackPanel>
-                            </Button>
-                            <Button Tag="transport" Click="button_Click">
-                                <StackPanel>
-                                    <Image Source="Image\t1.png" Height="40"></Image>
-                                    <TextBlock>Транспорт</TextBlock>
-                                </StackPanel>
-                            </Button>
-                            <Button Tag="excursion" Click="button_Click">
-                                <StackPanel>
-                                    <Image Source="Image\e2.png" Height="40"></Image>
-                                    <TextBlock>Экскурсии</TextBlock>
-                                </StackPanel>
-                            </Button>
-                        </UniformGrid>
+									<RadioButton  Tag="{Binding Tag}" 
+												 IsChecked="{Binding IsSelected, Mode=TwoWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}}"
+												 Click="button_Click" HorizontalAlignment="Left" Width="142"
+												 Background="Brown"
+												 >
+										<StackPanel>
+											<Image Source="{Binding Image}" Height="40"></Image>
+											<TextBlock Text="{Binding Text}"></TextBlock>
+										</StackPanel>
+									</RadioButton>
+								</DataTemplate>
+							</ListBox.ItemTemplate>
+
+						</ListBox>
 
                         <Frame x:Name="OrderSettings" Grid.Column="1" NavigationUIVisibility="Hidden" Source="Pages/DefaultPage.xaml" />
 
@@ -131,7 +137,7 @@
                         <TextBlock Margin="50" x:Name="textBlock" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Выберете дату выезда" VerticalAlignment="Top" Height="33" Width="249" FontSize="20"/>
                         <DatePicker HorizontalAlignment="Center" VerticalAlignment="Center" Width="249" FontSize="20"/>
                         <Label></Label>
-                        <Button  Margin="50"  x:Name="button"  HorizontalAlignment="Center"  VerticalAlignment="Center" Width="249" Height="61" Click="button_Click" Content="Подтвердить"/>
+                        <Button  Margin="50"  x:Name="button"  HorizontalAlignment="Center"  VerticalAlignment="Center" Width="249" Height="61" Content="Подтвердить"/>
                     </StackPanel>
                 </TabItem>
             </TabControl>

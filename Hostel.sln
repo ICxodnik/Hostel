@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hostel", "Hostel\Hostel.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbLayer", "DbLayer\DbLayer.csproj", "{21D0EBD8-1D1F-4F83-B328-D093D7A08B39}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Admin", "Admin\Admin.csproj", "{B1A41688-C9CC-4104-BBF7-26981D427789}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{21D0EBD8-1D1F-4F83-B328-D093D7A08B39}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{21D0EBD8-1D1F-4F83-B328-D093D7A08B39}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{21D0EBD8-1D1F-4F83-B328-D093D7A08B39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1A41688-C9CC-4104-BBF7-26981D427789}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1A41688-C9CC-4104-BBF7-26981D427789}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1A41688-C9CC-4104-BBF7-26981D427789}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1A41688-C9CC-4104-BBF7-26981D427789}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

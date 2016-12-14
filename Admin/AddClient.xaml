@@ -1,0 +1,36 @@
+﻿<Window x:Class="Admin.AddClient"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Admin"
+        mc:Ignorable="d"
+        Title="AddClient" Height="300" Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" HorizontalAlignment="Center" FontSize="22">Add new client</Label>
+
+        <StackPanel Grid.Row="1">
+            <Label>Name:</Label>
+            <TextBox Text="{Binding FirstName}"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="2">
+            <Label>Address:</Label>
+            <TextBox Text="{Binding Address}"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="3">
+            <Label>Passport:</Label>
+            <TextBox Text="{Binding Passport}"></TextBox>
+        </StackPanel>
+
+        <Button Grid.Row="4" x:Name="AddClientBtn" FontSize="18" Click="AddClient_Click">Save</Button>
+
+    </Grid>
+</Window>

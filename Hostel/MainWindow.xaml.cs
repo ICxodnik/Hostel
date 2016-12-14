@@ -38,20 +38,19 @@ namespace Hostel
 
             // when db will be ready
             // 
-            //using (var context = new HotelPlazaContext())
-            //{
-            //    context.Database.CreateIfNotExists();
+            using (var context = new HotelPlazaContext())
+            {
+                var client = new Client()
+                {
+                    Id = 1,
+                    FirstName = "Abdula Akazov",
+                    Address = "Manhatten??",
+                    Passport = "RK93849340"
+                };
 
-            //    var client = new Client() {
-            //        Id = 1,
-            //        FirstName = "Abdula Akazov",
-            //        Address = "Manhatten??",
-            //        Passport = "RK93849340"
-            //    };
-
-            //    context.Clients.Add(client);
-            //    var resultCode = context.SaveChanges();
-            //}
+                context.Clients.Add(client);
+                var resultCode = context.SaveChanges();
+            }
 
         }
 

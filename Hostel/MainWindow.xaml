@@ -29,6 +29,10 @@
             <Setter Property="Background" Value="#FFA97E7E"/>
         </Style>
     </Window.Resources>
+    <Window.CommandBindings>
+        <CommandBinding Command="{x:Static local:MainWindow.OrderService}" 
+                        Executed="OrderAService" />
+    </Window.CommandBindings>
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="Image/16.png"/>

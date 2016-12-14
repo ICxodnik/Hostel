@@ -24,6 +24,13 @@ namespace Hostel
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        public static RoutedUICommand OrderService = new RoutedUICommand(
+                "Order a Service",
+                "OrderService",
+                typeof(MainWindow)
+            );
+
         public MainWindow()
         {
             InitializeComponent();
@@ -73,6 +80,11 @@ namespace Hostel
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void OrderAService(object sender, ExecutedRoutedEventArgs e)
         {
 
         }

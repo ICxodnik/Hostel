@@ -38,7 +38,7 @@
                             <Label Content="{Binding Price}" FontSize="15"/>
                         </StackPanel>
 
-                        <Image Source="{Binding SourseImg}" Height="200"  Grid.Row="1"/>
+                        <Image Source="{Binding SourseImg}" Height="175"  Grid.Row="1"/>
                         <Label Content="{Binding Time}" FontSize="15" Grid.Row="2" HorizontalAlignment="Right" HorizontalContentAlignment="Right" />
                         <Label Content="Time:" FontSize="15" Grid.Row="2" HorizontalAlignment="Left" HorizontalContentAlignment="Left" />
                     </Grid>

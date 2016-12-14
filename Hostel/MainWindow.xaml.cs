@@ -53,7 +53,6 @@ namespace Hostel
             { "food", () => new FoodPage() },
             { "cleaning", () => new CleaningPage() },
             { "spa", () => new SpaPage() },
-            { "transport", () => new TransportPage() },
             { "excursion", () => new ExcursionPage() }
         };
 

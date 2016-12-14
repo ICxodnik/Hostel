@@ -84,6 +84,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Pages\BookedPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Pages\FoodPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -93,10 +97,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\SpaPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Pages\TransportPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -112,6 +112,9 @@
     <Compile Include="Pages\DeliverPage.xaml.cs">
       <DependentUpon>DeliverPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\BookedPage.xaml.cs">
+      <DependentUpon>BookedPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\FoodPage.xaml.cs">
       <DependentUpon>FoodPage.xaml</DependentUpon>
     </Compile>
@@ -120,9 +123,6 @@
     </Compile>
     <Compile Include="Pages\SpaPage.xaml.cs">
       <DependentUpon>SpaPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\TransportPage.xaml.cs">
-      <DependentUpon>TransportPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\ExcursionPage.xaml.cs">
       <DependentUpon>ExcursionPage.xaml</DependentUpon>
@@ -221,6 +221,31 @@
     <Resource Include="Image\Exc\exc4.jpg" />
     <Resource Include="Image\Exc\exc5.jpg" />
     <Resource Include="Image\Exc\exc6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Spa\1.jpg" />
+    <Resource Include="Image\Spa\2.jpg" />
+    <Resource Include="Image\Spa\3.jpg" />
+    <Resource Include="Image\Spa\4.jpg" />
+    <Resource Include="Image\Spa\5.jpg" />
+    <Resource Include="Image\Spa\6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Dos\1.jpg" />
+    <Resource Include="Image\Dos\2.jpg" />
+    <Resource Include="Image\Dos\3.jpg" />
+    <Resource Include="Image\Dos\4.jpg" />
+    <Resource Include="Image\Dos\5.jpg" />
+    <Resource Include="Image\Dos\6.jpg" />
+    <Resource Include="Image\Dos\7.jpg" />
+    <Resource Include="Image\Dos\8.jpg" />
+    <Resource Include="Image\Dos\9.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Clear\1.jpg" />
+    <Resource Include="Image\Clear\2.jpg" />
+    <Resource Include="Image\Clear\3.jpg" />
+    <Resource Include="Image\Clear\4.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

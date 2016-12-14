@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hostel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="885.719" Width="760.66" FontFamily="Microdot" FontSize="15" FontWeight="Black" FontStretch="UltraExpanded" Background="#FF661E1E" TextOptions.TextFormattingMode="Display">
+        Title="MainWindow" FontFamily="Microdot" FontSize="15" FontWeight="Black" FontStretch="UltraExpanded" Background="#FF661E1E" TextOptions.TextFormattingMode="Display" Height="738.76" Width="822.4">
     <Window.Resources>
 
         <Style x:Name="TextBlock" TargetType="{x:Type TextBlock}">
@@ -82,12 +82,6 @@
                                     <TextBlock>СПА-услуги</TextBlock>
                                 </StackPanel>
                             </Button>
-                            <Button Tag="transport" Click="button_Click">
-                                <StackPanel>
-                                    <Image Source="Image\t1.png" Height="40"></Image>
-                                    <TextBlock>Транспорт</TextBlock>
-                                </StackPanel>
-                            </Button>
                             <Button Tag="excursion" Click="button_Click">
                                 <StackPanel>
                                     <Image Source="Image\e2.png" Height="40"></Image>
@@ -102,23 +96,18 @@
                 </TabItem>
 
                 <TabItem Header="Просмотреть заказанные услуги" HorizontalAlignment="Center">
-                    <Grid Margin="5,5">
-                        <Grid.Background>
-                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.7">
-                                <GradientStop Color="Black" Offset="1"/>
-                                <GradientStop Color="#FF883A3A"/>
-                            </LinearGradientBrush>
-                        </Grid.Background>
+                    <Grid Margin="15,15">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
 
-                        <ListView x:Name="listView" Height="562" VerticalAlignment="Top" Margin="0,0,-0.4,0" Background="{x:Null}">
-                            <ListView.View>
-                                <GridView>
-                                    <GridViewColumn/>
-                                </GridView>
-                            </ListView.View>
-                        </ListView>
+
+                        <Frame x:Name="Orders" Grid.Column="1" NavigationUIVisibility="Hidden" Source="Pages/BookedPage.xaml" />
+
                     </Grid>
                 </TabItem>
+
 
                 <TabItem Header="Изменение времени пребывания">
                     <StackPanel Margin="25,25">

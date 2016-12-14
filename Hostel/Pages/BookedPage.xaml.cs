@@ -18,19 +18,21 @@ namespace Hostel.Pages
     /// <summary>
     /// Interaction logic for ExcursionPage.xaml
     /// </summary>
-    public partial class FoodPage : Page
+    public partial class BookedPage : Page
     {
-        public FoodPage()
+        public BookedPage()
         {
             InitializeComponent();
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            
+
             listView.ItemsSource = new[] {
                 new { Type = "Завтрак", Price = "1$", SourseImg = "\\Image\\Food\\zavtrak.jpg", Time = "9:00"},
-                new { Type = "Обед", Price = "2$", SourseImg = "\\Image\\Food\\obed.jpg", Time = "13:30" },
+                new { Type = "Храмы Львова", Price = "5$", SourseImg = "\\Image\\Exc\\exc1.jpg", Time = "11/11/16 9:00"},
+                new { Type = "Кофейный львов", Price = "8$", SourseImg = "\\Image\\Exc\\exc2.jpg", Time = "12/11/16 13:30" },
+                new { Type = "Романтический Львов", Price = "15$", SourseImg = "\\Image\\Exc\\exc6.jpg", Time = "16/11/16 20:00" },
                 new { Type = "Ужин", Price = "5$", SourseImg = "\\Image\\Food\\yzunf.jpg", Time = "20:00" }
             };
         }

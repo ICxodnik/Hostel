@@ -27,7 +27,12 @@ namespace Hostel.Pages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            listView.ItemsSource = Enumerable.Repeat("Прогулка по парку", 10);
+            listView.ItemsSource = new[] {
+                new { Type = "Прачечная", Price = "1$", SourseImg = "\\Image\\Clear\\1.jpg", Time = "9:00"},
+                new { Type = "Уборка комнаты", Price = "2$", SourseImg = "\\Image\\Clear\\2.jpg", Time = "13:30" },
+                new { Type = "Влажная уборка", Price = "1$", SourseImg = "\\Image\\Clear\\3.jpg", Time = "20:00" },
+                new { Type = "Замена белья", Price = "2$", SourseImg = "\\Image\\Clear\\4.jpg", Time = "9:00"}
+            };
         }
     }
 }

@@ -30,6 +30,11 @@ namespace Hostel
                 "OrderService",
                 typeof(MainWindow)
             );
+        public static RoutedUICommand MakeOrder = new RoutedUICommand(
+            "Make an order of selected service",
+            "MakeOrder",
+            typeof(MainWindow)
+        );
 
         public MainWindow()
         {
@@ -60,11 +65,6 @@ namespace Hostel
             }
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void OrderAService(object sender, ExecutedRoutedEventArgs e)
         {
             var service = e.Parameter as Service;
@@ -73,10 +73,30 @@ namespace Hostel
                 return;
             }
 
+            OrderPopup.DataContext = service;
+            OrderPopup.IsOpen = true;
+        }
 
+        private void MakeNewOrder(object sender, ExecutedRoutedEventArgs e)
+        {
+            OrderPopup.DataContext = null;
+            OrderPopup.IsOpen = false;
+            var service = e.Parameter as Service;
+            if (service == null)
+            {
+                return;
+            }
 
+            var order = new ServiceOrder()
+            {
+                ProvidedDate = DateTime.Now,
+                Service = service,
+                CashPaid = service.Price,
+                Client = null
+            };
 
-
+            DbRepository.Context.Orders.Add(order);
+            DbRepository.Context.SaveChanges();
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using DbLayer;
+﻿using DbLayer.Tables;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,22 +17,13 @@ using System.Windows.Shapes;
 namespace Hostel.Pages
 {
     /// <summary>
-    /// Interaction logic for ExcursionPage.xaml
+    /// Interaction logic for OrderPage.xaml
     /// </summary>
-    public partial class BookedPage : Page
+    public partial class OrderPage : UserControl
     {
-        public BookedPage()
+        public OrderPage()
         {
             InitializeComponent();
-        }
-
-        private void Page_Loaded(object sender, RoutedEventArgs e)
-        {
-            var orders = DbRepository.Context.Orders.ToList();
-            var total = orders.Sum(order => order.CashPaid);
-
-            listView.ItemsSource = orders;
-            textBlock.Text = "Итог - " + new PriceConverter().ConvertValueRaw(total);
         }
     }
 }

@@ -39,6 +39,8 @@ namespace Hostel
         public MainWindow()
         {
             InitializeComponent();
+
+            SetFrame("deliver");
         }
 
         static Dictionary<String, Func<Page>> pages = new Dictionary<string, Func<Page>> {
@@ -49,17 +51,17 @@ namespace Hostel
             { "excursion", () => new ServicePage(Service.ServiceType.Excursion) }
         };
 
-        private void textBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
         private void button_Click(object sender, RoutedEventArgs e)
         {
+            OrderPopup.IsOpen = false;
             var type = (sender as Button).Tag.ToString();
+            SetFrame(type);
+        }
 
+        private void SetFrame(string frame)
+        {
             Func<Page> pageFactory;
-            if (pages.TryGetValue(type, out pageFactory))
+            if (pages.TryGetValue(frame, out pageFactory))
             {
                 OrderSettings.NavigationService.Navigate(pageFactory());
             }
@@ -67,6 +69,7 @@ namespace Hostel
 
         private void OrderAService(object sender, ExecutedRoutedEventArgs e)
         {
+
             var service = e.Parameter as Service;
             if (service == null)
             {

@@ -43,7 +43,7 @@
             <TextBlock Text="{Binding Time}" Style="{StaticResource ServiceDesc}" />
         </StackPanel>
 
-        <Image Grid.Column="1" Grid.Row="1" Source="{Binding SourceImage}" Height="175" />
+        <Image Grid.Column="1" Grid.Row="1" Source="{Binding SourceImage}" Height="175" Margin="15"/>
 
         <Button Grid.ColumnSpan="2" Grid.Row="2" Command="{x:Static local:MainWindow.MakeOrder}" 
                 CommandParameter="{Binding}">Заказать</Button>

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Hostel"
         xmlns:pages="clr-namespace:Hostel.Pages"
         mc:Ignorable="d"
-        Title="MainWindow" FontFamily="Microdot" FontSize="15" FontWeight="Black" FontStretch="UltraExpanded" Background="#FF661E1E" TextOptions.TextFormattingMode="Display" Height="738.76" Width="822.4">
+        Title="MainWindow" FontFamily="Arial" FontSize="15" FontWeight="Black" FontStretch="UltraExpanded" Background="#FF661E1E" TextOptions.TextFormattingMode="Display" Height="738.76" Width="822.4">
     <Window.Resources>
 
         <Style x:Name="TextBlock" TargetType="{x:Type TextBlock}">
@@ -65,7 +65,7 @@
 
 
                         <UniformGrid Grid.Column="0" Columns="1" >
-                            <Button Tag="deliver" Click="button_Click" Margin="0,5,0,4.6" HorizontalAlignment="Left" Width="142">
+                            <Button Tag="deliver" Click="button_Click">
                                 <StackPanel>
                                     <Image Source="Image\d1.png" Height="40"></Image>
                                     <TextBlock>Доставка</TextBlock>
@@ -99,9 +99,16 @@
 
                         <Frame x:Name="OrderSettings" Grid.Column="1" NavigationUIVisibility="Hidden" Source="Pages/DefaultPage.xaml" />
                         <Popup x:Name="OrderPopup" PlacementTarget="{Binding ElementName=OrderSettings}" 
-                               Placement="Relative" Width="{Binding ActualWidth, ElementName=OrderSettings}" Height="{Binding ActualHeight, ElementName=OrderSettings}" 
+                               Placement="Relative" Width="{Binding Width, ElementName=OrderSettings}" Height="{Binding Height, ElementName=OrderSettings}" 
                                IsOpen="False">
-                            <pages:OrderPage></pages:OrderPage>
+                            <pages:OrderPage BorderThickness="5">
+                                <pages:OrderPage.BorderBrush>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FFDAAD7D" Offset="0"/>
+                                        <GradientStop Color="#FF8E6030" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </pages:OrderPage.BorderBrush>
+                            </pages:OrderPage>
                         </Popup>
                     </Grid>
                 </TabItem>
@@ -128,7 +135,7 @@
                                 <GradientStop Color="#FF883A3A"/>
                             </LinearGradientBrush>
                         </StackPanel.Background>
-                        <TextBlock Margin="50" x:Name="textBlock" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Выберете дату выезда" VerticalAlignment="Top" Height="33" Width="249" FontSize="20"/>
+                        <TextBlock Margin="256,50" x:Name="textBlock" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Выберете дату выезда" VerticalAlignment="Top" Height="71" Width="248" FontSize="20"/>
                         <DatePicker HorizontalAlignment="Center" VerticalAlignment="Center" Width="249" FontSize="20"/>
                         <Label></Label>
                         <Button  Margin="50"  x:Name="button"  HorizontalAlignment="Center"  VerticalAlignment="Center" Width="249" Height="61" Click="button_Click" Content="Подтвердить"/>
@@ -150,10 +157,10 @@
 
                 <StackPanel Grid.Column="0">
                     <Label x:Name="labelDateTime1" HorizontalAlignment="Center" VerticalAlignment="Top">
-                        Дата заказа:
+                        Дата заказа: 15.12.16
                     </Label>
                     <Label x:Name="labelDateTimeLast1" HorizontalAlignment="Center" VerticalAlignment="Top">
-                        Осталось дней:
+                        Осталось дней: 3
                     </Label>
                 </StackPanel>
 
@@ -161,13 +168,10 @@
 
                 <StackPanel Grid.Column="2">
                     <Label x:Name="labelClientName1" HorizontalAlignment="Center" VerticalAlignment="Top">
-                        Имя:
+                        Имя: Наталья Ходорова
                     </Label>
                     <Label x:Name="labelClientNomer1" HorizontalAlignment="Center" VerticalAlignment="Top">
-                        Номер:
-                    </Label>
-                    <Label x:Name="labelClientDebt1" HorizontalAlignment="Center" VerticalAlignment="Top">
-                        Задолженость:
+                        Номер: 41
                     </Label>
                 </StackPanel>
             </Grid>

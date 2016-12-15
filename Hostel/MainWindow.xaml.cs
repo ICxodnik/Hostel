@@ -24,36 +24,29 @@ namespace Hostel
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        public static RoutedUICommand OrderService = new RoutedUICommand(
+                "Order a Service",
+                "OrderService",
+                typeof(MainWindow)
+            );
+        public static RoutedUICommand MakeOrder = new RoutedUICommand(
+            "Make an order of selected service",
+            "MakeOrder",
+            typeof(MainWindow)
+        );
+
         public MainWindow()
         {
             InitializeComponent();
-
-
-            // when db will be ready
-            // 
-            //using (var context = new HotelPlazaContext())
-            //{
-            //    context.Database.CreateIfNotExists();
-
-            //    var client = new Client() {
-            //        Id = 1,
-            //        FirstName = "Abdula Akazov",
-            //        Address = "Manhatten??",
-            //        Passport = "RK93849340"
-            //    };
-
-            //    context.Clients.Add(client);
-            //    var resultCode = context.SaveChanges();
-            //}
-
         }
 
         static Dictionary<String, Func<Page>> pages = new Dictionary<string, Func<Page>> {
-            { "deliver", () => new DeliverPage() },
-            { "food", () => new FoodPage() },
-            { "cleaning", () => new CleaningPage() },
-            { "spa", () => new SpaPage() },
-            { "excursion", () => new ExcursionPage() }
+            { "deliver", () => new ServicePage(Service.ServiceType.Deliver) },
+            { "food", () => new ServicePage(Service.ServiceType.Food) },
+            { "cleaning", () => new ServicePage(Service.ServiceType.Cleaning) },
+            { "spa", () => new ServicePage(Service.ServiceType.Spa) },
+            { "excursion", () => new ServicePage(Service.ServiceType.Excursion) }
         };
 
         private void textBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -72,9 +65,38 @@ namespace Hostel
             }
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void OrderAService(object sender, ExecutedRoutedEventArgs e)
         {
+            var service = e.Parameter as Service;
+            if (service == null)
+            {
+                return;
+            }
 
+            OrderPopup.DataContext = service;
+            OrderPopup.IsOpen = true;
+        }
+
+        private void MakeNewOrder(object sender, ExecutedRoutedEventArgs e)
+        {
+            OrderPopup.DataContext = null;
+            OrderPopup.IsOpen = false;
+            var service = e.Parameter as Service;
+            if (service == null)
+            {
+                return;
+            }
+
+            var order = new ServiceOrder()
+            {
+                ProvidedDate = DateTime.Now,
+                Service = service,
+                CashPaid = service.Price,
+                Client = null
+            };
+
+            DbRepository.Context.Orders.Add(order);
+            DbRepository.Context.SaveChanges();
         }
     }
 }

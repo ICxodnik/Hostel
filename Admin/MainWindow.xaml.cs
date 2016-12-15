@@ -1,9 +1,9 @@
 ﻿using DbLayer;
+using DbLayer.Tables;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -14,25 +14,28 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Hostel.Pages
+namespace Admin
 {
     /// <summary>
-    /// Interaction logic for ExcursionPage.xaml
+    /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class BookedPage : Page
+    public partial class MainWindow : Window
     {
-        public BookedPage()
+        RentRoom rentRoomWindow = new RentRoom();
+
+
+        public MainWindow()
         {
             InitializeComponent();
+            using (var context = new HotelPlazaContext())
+            {
+
+            }
         }
 
-        private void Page_Loaded(object sender, RoutedEventArgs e)
+        private void newClient_Click(object sender, RoutedEventArgs e)
         {
-            var orders = DbRepository.Context.Orders.ToList();
-            var total = orders.Sum(order => order.CashPaid);
-
-            listView.ItemsSource = orders;
-            textBlock.Text = "Итог - " + new PriceConverter().ConvertValueRaw(total);
+            rentRoomWindow.ShowDialog();
         }
     }
 }

@@ -1,0 +1,46 @@
+﻿<Window x:Class="Admin.FindClient"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Admin"
+        mc:Ignorable="d"
+        Title="FindClient" Height="500" Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="30" />
+            <RowDefinition />
+            <RowDefinition Height="30" />
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" FontSize="22" HorizontalAlignment="Center">Find Client</Label>
+
+        <TextBox Grid.Row="1" x:Name="NameFilter" TextChanged="NameFilter_TextChanged"></TextBox>
+
+        <ListBox x:Name="FoundClientList" Grid.Row="2" ItemsSource="{Binding FoundClients}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="{Binding FirstName}"></TextBlock>
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding Passport}"></TextBlock>
+                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Address}" TextTrimming="CharacterEllipsis"></TextBlock>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <Button Grid.Row="3" x:Name="SelectClient" Click="SelectClient_Click">Select</Button>
+        
+        
+    </Grid>
+</Window>

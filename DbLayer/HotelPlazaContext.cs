@@ -17,6 +17,7 @@ namespace DbLayer
 
         public HotelPlazaContext() : base(MakeConnection(), true)
         {
+            Database.SetInitializer<HotelPlazaContext>(new CreateDatabaseIfNotExists<HotelPlazaContext>());
         }
 
         static DbConnection MakeConnection()
@@ -28,17 +29,21 @@ namespace DbLayer
 
 
         public DbSet<Client> Clients { get; set; }
-        public DbSet<Order> Orders { get; set; }
+        public DbSet<ServiceOrder> Orders { get; set; }
+        public DbSet<OrderedRoom> OrderedRooms { get; set; }
         public DbSet<Room> Rooms { get; set; }
+        public DbSet<Service> Services { get; set; }
 
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Client>();
+            modelBuilder.Entity<Room>();
+            modelBuilder.Entity<ServiceOrder>();
+            modelBuilder.Entity<OrderedRoom>();
+            modelBuilder.Entity<Service>();
             base.OnModelCreating(modelBuilder);
-            //modelBuilder.Entity<Client>().MapToStoredProcedures();
-            //modelBuilder.Entity<Order>().MapToStoredProcedures();
-            //modelBuilder.Entity<Room>().MapToStoredProcedures();
         }
     }
 }

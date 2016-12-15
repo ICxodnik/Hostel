@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hostel"
+        xmlns:pages="clr-namespace:Hostel.Pages"
         mc:Ignorable="d"
         Title="MainWindow" FontFamily="Microdot" FontSize="15" FontWeight="Black" FontStretch="UltraExpanded" Background="#FF661E1E" TextOptions.TextFormattingMode="Display" Height="738.76" Width="822.4">
     <Window.Resources>
@@ -29,6 +30,12 @@
             <Setter Property="Background" Value="#FFA97E7E"/>
         </Style>
     </Window.Resources>
+    <Window.CommandBindings>
+        <CommandBinding Command="{x:Static local:MainWindow.OrderService}" 
+                        Executed="OrderAService" />
+        <CommandBinding Command="{x:Static local:MainWindow.MakeOrder}"
+                        Executed="MakeNewOrder" />
+    </Window.CommandBindings>
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="Image/16.png"/>
@@ -91,7 +98,11 @@
                         </UniformGrid>
 
                         <Frame x:Name="OrderSettings" Grid.Column="1" NavigationUIVisibility="Hidden" Source="Pages/DefaultPage.xaml" />
-
+                        <Popup x:Name="OrderPopup" PlacementTarget="{Binding ElementName=OrderSettings}" 
+                               Placement="Relative" Width="{Binding ActualWidth, ElementName=OrderSettings}" Height="{Binding ActualHeight, ElementName=OrderSettings}" 
+                               IsOpen="False">
+                            <pages:OrderPage></pages:OrderPage>
+                        </Popup>
                     </Grid>
                 </TabItem>
 

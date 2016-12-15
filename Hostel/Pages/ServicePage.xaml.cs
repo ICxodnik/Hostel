@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DbLayer;
+using DbLayer.Tables;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,23 +18,21 @@ using System.Windows.Shapes;
 namespace Hostel.Pages
 {
     /// <summary>
-    /// Interaction logic for ExcursionPage.xaml
+    /// Interaction logic for ServicePage.xaml
     /// </summary>
-    public partial class FoodPage : Page
+    public partial class ServicePage : Page
     {
-        public FoodPage()
+        Service.ServiceType type;
+
+        public ServicePage(Service.ServiceType type)
         {
+            this.type = type;
             InitializeComponent();
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            
-            listView.ItemsSource = new[] {
-                new { Type = "Завтрак", Price = "1$", SourseImg = "\\Image\\Food\\zavtrak.jpg", Time = "9:00"},
-                new { Type = "Обед", Price = "2$", SourseImg = "\\Image\\Food\\obed.jpg", Time = "13:30" },
-                new { Type = "Ужин", Price = "5$", SourseImg = "\\Image\\Food\\yzunf.jpg", Time = "20:00" }
-            };
+            listView.ItemsSource = DbRepository.Context.Services.Where(service => service.Type == this.type).ToList();
         }
     }
 }

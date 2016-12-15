@@ -5,16 +5,15 @@ using System.Text;
 
 namespace DbLayer.Tables
 {
-    public class Order
+    public class ServiceOrder
     {
         public int Id { get; set; }
 
         public virtual Client Client { get; set; }
-        public virtual Room Room { get; set; }
+        public virtual Service Service { get; set; }
 
-        public DateTime DateOfEntry { get; set; }
-        public DateTime FateOfExit { get; set; }
+        public DateTime ProvidedDate { get; set; }
 
-        public Decimal CashPaid { get; set; }
+        public decimal CashPaid { get; set; }
     }
 }

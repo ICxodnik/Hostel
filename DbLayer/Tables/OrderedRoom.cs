@@ -14,7 +14,9 @@ namespace DbLayer.Tables
 
         public virtual Client Client { get; set; }
         public virtual Room Room { get; set; }
+        public DateTime InDate { get; set; }
+        public DateTime OutDate { get; set; }
 
-        public virtual DbSet<Order> Orders { get; set; }
+        public virtual DbSet<ServiceOrder> ServicesOrdered { get; set; }
     }
 }

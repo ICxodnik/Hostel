@@ -29,9 +29,10 @@ namespace DbLayer
 
 
         public DbSet<Client> Clients { get; set; }
-        public DbSet<Order> Orders { get; set; }
+        public DbSet<ServiceOrder> Orders { get; set; }
         public DbSet<OrderedRoom> OrderedRooms { get; set; }
         public DbSet<Room> Rooms { get; set; }
+        public DbSet<Service> Services { get; set; }
 
 
 
@@ -39,8 +40,9 @@ namespace DbLayer
         {
             modelBuilder.Entity<Client>();
             modelBuilder.Entity<Room>();
-            modelBuilder.Entity<Order>();
+            modelBuilder.Entity<ServiceOrder>();
             modelBuilder.Entity<OrderedRoom>();
+            modelBuilder.Entity<Service>();
             base.OnModelCreating(modelBuilder);
         }
     }

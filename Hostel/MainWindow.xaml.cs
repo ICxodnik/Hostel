@@ -34,32 +34,14 @@ namespace Hostel
         public MainWindow()
         {
             InitializeComponent();
-
-
-            // when db will be ready
-            // 
-            using (var context = new HotelPlazaContext())
-            {
-                var client = new Client()
-                {
-                    Id = 1,
-                    FirstName = "Abdula Akazov",
-                    Address = "Manhatten??",
-                    Passport = "RK93849340"
-                };
-
-                context.Clients.Add(client);
-                var resultCode = context.SaveChanges();
-            }
-
         }
 
         static Dictionary<String, Func<Page>> pages = new Dictionary<string, Func<Page>> {
-            { "deliver", () => new DeliverPage() },
-            { "food", () => new FoodPage() },
-            { "cleaning", () => new CleaningPage() },
-            { "spa", () => new SpaPage() },
-            { "excursion", () => new ExcursionPage() }
+            { "deliver", () => new ServicePage(Service.ServiceType.Deliver) },
+            { "food", () => new ServicePage(Service.ServiceType.Food) },
+            { "cleaning", () => new ServicePage(Service.ServiceType.Cleaning) },
+            { "spa", () => new ServicePage(Service.ServiceType.Spa) },
+            { "excursion", () => new ServicePage(Service.ServiceType.Excursion) }
         };
 
         private void textBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -85,6 +67,15 @@ namespace Hostel
 
         private void OrderAService(object sender, ExecutedRoutedEventArgs e)
         {
+            var service = e.Parameter as Service;
+            if (service == null)
+            {
+                return;
+            }
+
+
+
+
 
         }
     }

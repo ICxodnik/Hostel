@@ -80,53 +80,26 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\DeliverPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Pages\BookedPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Pages\FoodPage.xaml">
+    <Page Include="Pages\ServicePage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Pages\CleaningPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Pages\SpaPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Pages\ExcursionPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Pages\DefaultPage.xaml.cs">
       <DependentUpon>DefaultPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\DeliverPage.xaml.cs">
-      <DependentUpon>DeliverPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\BookedPage.xaml.cs">
       <DependentUpon>BookedPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\FoodPage.xaml.cs">
-      <DependentUpon>FoodPage.xaml</DependentUpon>
+    <Compile Include="Pages\ServicePage.xaml.cs">
+      <DependentUpon>ServicePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\CleaningPage.xaml.cs">
-      <DependentUpon>CleaningPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\SpaPage.xaml.cs">
-      <DependentUpon>SpaPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\ExcursionPage.xaml.cs">
-      <DependentUpon>ExcursionPage.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="PriceConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

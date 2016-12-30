@@ -138,7 +138,7 @@
                         <TextBlock Margin="256,50" x:Name="textBlock" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Выберете дату выезда" VerticalAlignment="Top" Height="71" Width="248" FontSize="20"/>
                         <DatePicker HorizontalAlignment="Center" VerticalAlignment="Center" Width="249" FontSize="20"/>
                         <Label></Label>
-                        <Button  Margin="50"  x:Name="button"  HorizontalAlignment="Center"  VerticalAlignment="Center" Width="249" Height="61" Click="button_Click" Content="Подтвердить"/>
+                        <Button  Margin="50"  x:Name="button"  HorizontalAlignment="Center"  VerticalAlignment="Center" Width="249" Height="61" Content="Подтвердить"/>
                     </StackPanel>
                 </TabItem>
             </TabControl>
@@ -159,12 +159,17 @@
                     <Label x:Name="labelDateTime1" HorizontalAlignment="Center" VerticalAlignment="Top">
                         Дата заказа: 15.12.16
                     </Label>
-                    <Label x:Name="labelDateTimeLast1" HorizontalAlignment="Center" VerticalAlignment="Top">
-                        Осталось дней: 3
+                    <Label Grid.Column="0" x:Name="labelClientNomer2" >
+                        Рецепшен: 0502077
                     </Label>
+                    <Label Grid.Column="0" x:Name="labelClientNomer3">
+                        Админ-ия: 0502088
+                    </Label>
+
                 </StackPanel>
 
-                <Image Grid.Column="1" Source="Image\1mini.png" Height="100" Opacity="0.5" ClipToBounds="True" />
+                <Image Grid.Column="1" Source="Image\1mini.png" Height="100" Opacity="0.5" ClipToBounds="True"  />
+
 
                 <StackPanel Grid.Column="2">
                     <Label x:Name="labelClientName1" HorizontalAlignment="Center" VerticalAlignment="Top">
@@ -172,6 +177,9 @@
                     </Label>
                     <Label x:Name="labelClientNomer1" HorizontalAlignment="Center" VerticalAlignment="Top">
                         Номер: 41
+                    </Label>
+                    <Label x:Name="labelDateTimeLast1" HorizontalAlignment="Center" VerticalAlignment="Top">
+                        Осталось дней: 3
                     </Label>
                 </StackPanel>
             </Grid>

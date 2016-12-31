@@ -6,9 +6,11 @@
         xmlns:local="clr-namespace:Hostel"
         xmlns:pages="clr-namespace:Hostel.Pages"
         mc:Ignorable="d"
-        Title="MainWindow" FontFamily="Arial" FontSize="15" FontWeight="Black" FontStretch="UltraExpanded" Background="#FF661E1E" TextOptions.TextFormattingMode="Display" Height="738.76" Width="822.4">
+         FontFamily="Arial" FontSize="15" FontWeight="Black" FontStretch="UltraExpanded" Background="#FF661E1E" TextOptions.TextFormattingMode="Display" Height="740" Width="850" MinWidth="850" MinHeight="700" MaxHeight="850">
     <Window.Resources>
 
+        
+        
         <Style x:Name="TextBlock" TargetType="{x:Type TextBlock}">
             <Setter Property="Foreground" Value="#FF3C261D" />
         </Style>
@@ -28,7 +30,18 @@
         <Style x:Name="StyleButtonMenu" TargetType="{x:Type Button}">
             <Setter Property="Margin" Value="0,5" ></Setter>
             <Setter Property="Background" Value="#FFA97E7E"/>
+            <Setter Property="Padding" Value="15,5" ></Setter>
+            <Setter Property="Clip" >
+                <Setter.Value>
+                    <EllipseGeometry 
+                        RadiusX="100"
+                        RadiusY="80"
+                        Center="100,50"/>
+                </Setter.Value>
+            </Setter>
         </Style>
+             
+        
     </Window.Resources>
     <Window.CommandBindings>
         <CommandBinding Command="{x:Static local:MainWindow.OrderService}" 
@@ -53,10 +66,54 @@
 
 
 
-            <TabControl x:Name="tabControl"  Grid.Row="1" Background="{x:Null}" >
+            <TabControl x:Name="tabControl" BorderThickness="0" Grid.Row="1" Background="{x:Null}" >
+                <TabControl.Resources>
+                    <Style TargetType="{x:Type TabItem}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type TabItem}">
+                                    <Grid>
+                                        <Border Name="Border" Background="#FF6E6C67" Margin="2,2,-8,0" BorderBrush="Black" BorderThickness="1,1,1,1" CornerRadius="10">
+                                            <ContentPresenter x:Name="ContentSite" ContentSource="Header" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="12,2,12,2" RecognizesAccessKey="True"/>
+                                        </Border>
 
-                <TabItem Header="Заказать услуги" HorizontalAlignment="Left">
-                    <Grid Margin="15,15">
+                                    </Grid>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter Property="FontWeight" Value="Normal" />
+                                            <Setter TargetName="Border" Property="Background" Value="#FFD4D0C8" />
+                                        </Trigger>
+                                        <Trigger Property="IsEnabled" Value="False">
+                                            <Setter TargetName="Border" Property="Background" Value="#FF6E6C67" />
+                                            <Setter Property="FontWeight" Value="Bold" />
+                                        </Trigger>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="FontWeight" Value="Normal" />
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+
+                        <Setter Property="Background" Value="#FF6E6C67" />
+                        <Setter Property="Height" Value="30" />
+                        <Setter Property="Margin" Value="0" />
+                        <Setter Property="Padding" Value="0" />
+
+                        <Setter Property="FontSize" Value="13" />
+                        <Setter Property="VerticalAlignment" Value="Top" />
+                        <Setter Property="HorizontalAlignment" Value="Right" />
+                        <Setter Property="UseLayoutRounding" Value="False" />
+                    </Style>
+                    <Style x:Key="tabGrids">
+                        <Setter Property="Grid.Background" Value="#FFE5E5E5" />
+                        <Setter Property="Grid.Margin" Value="6,10,10,10" />
+                    </Style>
+                </TabControl.Resources>
+                
+                <TabItem Header="Заказать услуги" HorizontalAlignment="Left" Grid.IsSharedSizeScope="True" VerticalAlignment="Top" MinWidth="410" RenderTransformOrigin="1,0.5" MaxWidth="500">
+
+                    <Grid Margin="20,25,20,10">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition/>
@@ -113,7 +170,7 @@
                     </Grid>
                 </TabItem>
 
-                <TabItem Header="Просмотреть заказанные услуги" HorizontalAlignment="Center">
+                <TabItem Header="Просмотреть заказанные услуги" HorizontalAlignment="Right" MinWidth="410" RenderTransformOrigin="1,0.5" MaxWidth="500">
                     <Grid Margin="15,15">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"/>
@@ -124,22 +181,6 @@
                         <Frame x:Name="Orders" Grid.Column="1" NavigationUIVisibility="Hidden" Source="Pages/BookedPage.xaml" />
 
                     </Grid>
-                </TabItem>
-
-
-                <TabItem Header="Изменение времени пребывания">
-                    <StackPanel Margin="25,25">
-                        <StackPanel.Background>
-                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.7">
-                                <GradientStop Color="Black" Offset="1"/>
-                                <GradientStop Color="#FF883A3A"/>
-                            </LinearGradientBrush>
-                        </StackPanel.Background>
-                        <TextBlock Margin="256,50" x:Name="textBlock" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Выберете дату выезда" VerticalAlignment="Top" Height="71" Width="248" FontSize="20"/>
-                        <DatePicker HorizontalAlignment="Center" VerticalAlignment="Center" Width="249" FontSize="20"/>
-                        <Label></Label>
-                        <Button  Margin="50"  x:Name="button"  HorizontalAlignment="Center"  VerticalAlignment="Center" Width="249" Height="61" Content="Подтвердить"/>
-                    </StackPanel>
                 </TabItem>
             </TabControl>
 
@@ -155,31 +196,21 @@
                     <ColumnDefinition Width=" Auto"/>
                 </Grid.ColumnDefinitions>
 
-                <StackPanel Grid.Column="0">
-                    <Label x:Name="labelDateTime1" HorizontalAlignment="Center" VerticalAlignment="Top">
-                        Дата заказа: 15.12.16
-                    </Label>
+                <StackPanel Grid.Column="0" VerticalAlignment="Center">
+
                     <Label Grid.Column="0" x:Name="labelClientNomer2" >
-                        Рецепшен: 0502077
+                        Рецепшен: 0502077888
                     </Label>
-                    <Label Grid.Column="0" x:Name="labelClientNomer3">
-                        Админ-ия: 0502088
-                    </Label>
+
 
                 </StackPanel>
 
-                <Image Grid.Column="1" Source="Image\1mini.png" Height="100" Opacity="0.5" ClipToBounds="True"  />
+                <Image Grid.Column="1" Source="Image\1mini.png" Height="50" Width="400" Opacity="0.5" ClipToBounds="True"  />
 
 
-                <StackPanel Grid.Column="2">
-                    <Label x:Name="labelClientName1" HorizontalAlignment="Center" VerticalAlignment="Top">
-                        Имя: Наталья Ходорова
-                    </Label>
-                    <Label x:Name="labelClientNomer1" HorizontalAlignment="Center" VerticalAlignment="Top">
-                        Номер: 41
-                    </Label>
-                    <Label x:Name="labelDateTimeLast1" HorizontalAlignment="Center" VerticalAlignment="Top">
-                        Осталось дней: 3
+                <StackPanel Grid.Column="2" VerticalAlignment="Center">
+                    <Label Grid.Column="0" x:Name="labelClientNomer3">
+                        Администрация: 0502088777
                     </Label>
                 </StackPanel>
             </Grid>

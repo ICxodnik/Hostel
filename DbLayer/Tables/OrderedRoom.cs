@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DbLayer.Tables
 {
+    [Table("orderedrooms")]
     public class OrderedRoom
     {
         public int Id { get; set; }

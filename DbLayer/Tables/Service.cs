@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DbLayer.Tables
 {
+    [Table("services")]
     public class Service
     {
         public int Id { get; set; }

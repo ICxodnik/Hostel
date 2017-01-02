@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DbLayer.Tables
 {
+    [Table("serviceorders")]
     public class ServiceOrder
     {
         public int Id { get; set; }

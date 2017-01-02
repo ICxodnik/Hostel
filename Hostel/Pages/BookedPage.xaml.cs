@@ -13,12 +13,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Hostel.Pages
 {
     /// <summary>
     /// Interaction logic for ExcursionPage.xaml
     /// </summary>
+    [Table("bookedpages")]
     public partial class BookedPage : Page
     {
         public BookedPage()

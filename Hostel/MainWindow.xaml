@@ -48,6 +48,8 @@
                         Executed="OrderAService" />
         <CommandBinding Command="{x:Static local:MainWindow.MakeOrder}"
                         Executed="MakeNewOrder" />
+        <CommandBinding Command="{x:Static local:MainWindow.DeleteOrder}"
+                        Executed="DeleteAOrder" />
     </Window.CommandBindings>
     <Grid>
         <Grid.Background>

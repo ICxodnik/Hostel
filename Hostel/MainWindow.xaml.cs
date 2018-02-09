@@ -26,16 +26,20 @@ namespace Hostel
     {
 
         public static RoutedUICommand OrderService = new RoutedUICommand(
-                "Order a Service",
-                "OrderService",
-                typeof(MainWindow)
-            );
+            "Order a Service",
+            "OrderService",
+             typeof(MainWindow)
+          );
         public static RoutedUICommand MakeOrder = new RoutedUICommand(
             "Make an order of selected service",
             "MakeOrder",
             typeof(MainWindow)
-        );
-
+         );
+        public static RoutedUICommand DeleteOrder = new RoutedUICommand(
+             "Delete an order of selected service",
+             "DeleteAOrder",
+              typeof(MainWindow)
+          );
         public MainWindow()
         {
             InitializeComponent();
@@ -100,6 +104,19 @@ namespace Hostel
 
             DbRepository.Context.Orders.Add(order);
             DbRepository.Context.SaveChanges();
+        }
+
+        private void DeleteAOrder(object sender, ExecutedRoutedEventArgs e)
+        {
+            var serviceOrder = e.Parameter as ServiceOrder;
+            if (serviceOrder == null)
+            {
+                return;
+            }
+            
+            DbRepository.Context.Orders.Remove(serviceOrder);
+            DbRepository.Context.SaveChanges();
+
         }
     }
 }

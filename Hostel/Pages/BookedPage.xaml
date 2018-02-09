@@ -36,7 +36,7 @@
 
 
                             <StackPanel  HorizontalAlignment="Left" Orientation="Horizontal" VerticalAlignment="Top" >
-                            <Button Background="#FF522C2C"  Content="    X    " Margin ="2, 2, 45, 2"/>
+                            <Button Background="#FF522C2C"  Content="    X    " Margin ="2, 2, 45, 2" Command="{x:Static local:MainWindow.DeleteOrder}" CommandParameter="{Binding}" Click="Button_Click_1" />
                             <Label Content="{Binding Service.Title}" FontSize="15"  />
                             <Label Content=" - " FontSize="15" />
                             <Label Content="{Binding CashPaid, Converter={StaticResource PriceConverter}}" FontSize="15"/>

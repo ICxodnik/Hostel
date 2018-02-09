@@ -34,7 +34,20 @@ namespace Hostel.Pages
             var total = orders.Sum(order => order.CashPaid);
 
             listView.ItemsSource = orders;
-            textBlock.Text = "Итог - " + new PriceConverter().ConvertValueRaw(total);
+            textBlock.Text = "Итоговая сумма - " + new PriceConverter().ConvertValueRaw(total);
         }
+
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            foreach (DbLayer.Tables.ServiceOrder currentItem in listView.SelectedItems)
+            {
+                (listView.ItemsSource as List<DbLayer.Tables.ServiceOrder>).Remove(currentItem);
+            }
+            listView.ItemsSource = listView.ItemsSource;
+
+        }
+
+
     }
 }

@@ -35,7 +35,8 @@
                         </Grid.Background>
 
 
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top"  >
+                            <StackPanel  HorizontalAlignment="Left" Orientation="Horizontal" VerticalAlignment="Top" >
+                            <Button Background="#FF522C2C"  Content="    X    " Margin ="2, 2, 45, 2"/>
                             <Label Content="{Binding Service.Title}" FontSize="15"  />
                             <Label Content=" - " FontSize="15" />
                             <Label Content="{Binding CashPaid, Converter={StaticResource PriceConverter}}" FontSize="15"/>
@@ -45,12 +46,13 @@
                             <Label Content="{Binding ProvidedDate}" FontSize="15" />
 
                         </StackPanel>
-                    </Grid>
+
+    </Grid>
 
                 </DataTemplate>
             </ListView.ItemTemplate>
 
         </ListView>
-        <TextBlock Margin="15" x:Name="textBlock" TextWrapping="Wrap" Text="Итог - 0$" VerticalAlignment="Top" Height="33" Width="249" FontSize="20"/>
+        <TextBlock Margin="15" x:Name="textBlock" TextWrapping="Wrap" Text="Итоговая сумма - 0$" VerticalAlignment="Top" Height="33" Width="249" FontSize="20"/>
     </Grid>
 </Page>

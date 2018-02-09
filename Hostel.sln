@@ -1,13 +1,21 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hostel", "Hostel\Hostel.csproj", "{8A5F4CEA-F170-4F22-A081-B0FBD304B37E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbLayer", "DbLayer\DbLayer.csproj", "{21D0EBD8-1D1F-4F83-B328-D093D7A08B39}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Admin", "Admin\Admin.csproj", "{B1A41688-C9CC-4104-BBF7-26981D427789}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Screenshots", "Screenshots", "{38141D37-07FB-47A8-8AB2-293B75868E9D}"
+	ProjectSection(SolutionItems) = preProject
+		Screenshots\Снимок.PNG = Screenshots\Снимок.PNG
+		Screenshots\Снимок1.PNG = Screenshots\Снимок1.PNG
+		Screenshots\Снимок2.PNG = Screenshots\Снимок2.PNG
+		Screenshots\Снимок3.PNG = Screenshots\Снимок3.PNG
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

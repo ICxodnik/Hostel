@@ -32,6 +32,7 @@ namespace Hostel.Pages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            
             listView.ItemsSource = DbRepository.Context.Services.Where(service => service.Type == this.type).ToList();
         }
     }

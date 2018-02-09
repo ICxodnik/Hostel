@@ -22,7 +22,7 @@ namespace DbLayer
 
         static DbConnection MakeConnection()
         {
-            var connectionString = "server=sql7.freemysqlhosting.net;uid=sql7151873;database=sql7151873;Pwd=a7W8QinGH3";
+            var connectionString = "server=sql11.freemysqlhosting.net;uid=sql11220273;database=sql11220273;Pwd=chXqx6Lrj7";
             //ConfigurationManager.ConnectionStrings["HotelPlaza"].ConnectionString
             return new MySqlConnection(connectionString);
         }
